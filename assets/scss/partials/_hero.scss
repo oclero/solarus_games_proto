@@ -1,0 +1,134 @@
+@import "partials/variables";
+@import "helpers/helpers";
+
+$hero-vertical-spacing: 16px;
+$hero-lead-font-size: 14px;
+$hero-lead-font-size-smaller: 13px;
+$hero-lead-font-color: white;
+
+#hero {
+  background: url('#{$img-path}/hero_background.jpg');
+  color: $hero-lead-font-color;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  width: 100%;
+  margin: 0;
+  background-size: cover;
+  height: 440px;
+  margin-top: 45px;
+
+  .lead {
+    font-size: $hero-lead-font-size;
+  }
+
+  br {
+    content: ' ';
+    display: block;
+    margin: .3em 0;
+  }
+}
+
+.hero-img-box {
+  height: 440px;
+  width: 100%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: auto;
+    margin: 0 0 0 0;
+  }
+}
+
+// @debug 80px + 2*convert-unit($hero-vertical-spacing, px);
+
+.hero-logo {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  margin-top: -5px;
+  margin-bottom: $hero-vertical-spacing;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.hero-right-column {
+  text-align: center;
+  max-width: 400px;
+  padding: 2*$hero-vertical-spacing;
+}
+
+.hero-button {
+  padding: 5px 15px;
+}
+
+.hero-button-text {
+    text-align: left;
+    float: right;
+}
+
+.hero-button-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: -5px;
+}
+
+.hero-button-caption {
+  font-size: $hero-lead-font-size-smaller;
+  font-weight: lighter;
+  position: relative;
+}
+
+.hero-button-icon {
+  font-family: 'FontAwesome';
+  float: left;
+  display: block;
+  font-size: 24px;
+  padding: 5px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+@mixin hero-link {
+  color: $hero-lead-font-color;
+
+  &:hover {
+    color: $color-accent;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $color-accent-2-active;
+    text-decoration: none;
+  }
+
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.hero-learnmore {
+  font-size: $hero-lead-font-size;
+  color: $hero-lead-font-color;
+  font-weight: bold;
+  margin-bottom: $hero-vertical-spacing;
+  text-align: center;
+
+  a {
+    @include hero-link();
+  }
+}
+
+.hero-other {
+  font-size: $hero-lead-font-size-smaller;
+  color: $hero-lead-font-color;
+  a {
+    margin: 0 5px;
+    @include hero-link();
+  }
+}

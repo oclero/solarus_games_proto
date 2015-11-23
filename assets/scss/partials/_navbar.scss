@@ -1,0 +1,140 @@
+@import "partials/variables";
+@import "helpers/helpers";
+
+$navbar-height: 48px;
+$navbar-background-color: #393939;
+$navbar-item-border-color-1: #474747;
+$navbar-item-border-color-2: #282828;
+$navbar-item-border-width: 1px;
+$navbar-item-active-border-color: $color-accent;
+$navbar-item-active-border-bottom-width: 3px;
+$navbar-item-link-color: #d5d5d5;
+
+.navbar {
+  background: $navbar-background-color;
+  min-height: $navbar-height;
+}
+
+.navbar-logo {
+    height: 100%;
+    margin:auto;
+}
+
+.navbar-brand {
+    padding: 4px;
+    height: $navbar-height;
+}
+
+.navbar-fixed-top {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border: 0;
+}
+
+/// Link of navbar
+@mixin navbar-link {
+  background-color: transparent; //$navbar-background-color;
+  color: $navbar-item-link-color;
+  padding: 15px;
+  height: $navbar-height;
+
+  &.navbar-link-right {
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: lighten($navbar-background-color, 2);
+    color: $navbar-item-link-color;
+  }
+  &:active {
+    background-color: darken($navbar-background-color, 2);
+  }
+
+  &[data-icon] {
+    &:before {
+      font-size: 14px;
+      font-family: 'FontAwesome';
+      display: block;
+    }
+  }
+
+  &[data-icon="blog"] {
+    &:before {
+      content: '';
+    }
+  }
+
+  &[data-icon="forum"] {
+    &:before {
+      content: '';
+    }
+  }
+
+  &[data-icon="search"] {
+    &:before {
+      content: '';
+    }
+  }
+}
+
+/// Trick to get the doubler border effect
+@mixin navbar-item {
+  min-width: 80px;
+  text-align: center;
+  position: relative;
+  background: transparent; //$navbar-background-color;
+  border-right: $navbar-item-border-width solid $navbar-item-border-color-2;
+  border-left: $navbar-item-border-width solid $navbar-item-border-color-1;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2*$navbar-item-border-width;
+    right: 0;
+    bottom: 0;
+    background: $navbar-item-border-color-2;
+    z-index: -1;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -2*$navbar-item-border-width;
+    bottom: 0;
+    background: $navbar-item-border-color-1;
+    z-index: -2;
+  }
+
+  .navbar-link-underline {
+    height: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    background: $navbar-item-active-border-color;
+  }
+
+  a {
+    @include navbar-link();
+  }
+
+  &.active {
+    a {
+      @include navbar-link();
+    }
+    .navbar-link-underline {
+      height: $navbar-item-active-border-bottom-width;
+    }
+  }
+}
+
+.navbar .navbar-nav,
+.navbar-inverse .navbar-nav {
+  background-color: $navbar-background-color;
+  li {
+      @include navbar-item();
+  }
+}

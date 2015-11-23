@@ -1,0 +1,195 @@
+@import "partials/variables";
+@import "helpers/helpers";
+
+// General
+
+.home-title-box {
+  padding: 10px 30px;
+
+  h1 {
+    font-weight: bold;
+    font-size: 2em;
+    padding: 0;
+    vertical-align: center;
+  }
+}
+.home-content-box {
+  background: white;
+}
+
+// Games
+
+.games-title-box {
+  @extend .home-title-box;
+  background: $color-accent;
+  color: white;
+}
+
+.games-content-box {
+  @extend .home-content-box;
+}
+
+.games-game-box {
+  background: white;
+  margin: 0;
+  padding: 10px;
+  //border: 1px solid red; //debug
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.games-game-boxart {
+  width: 100%;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.games-learn {
+  display: block;
+  text-align: center;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: $color-text;
+  background: white;
+  padding: 12px 10px 5px 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+
+  h4 {
+    margin-bottom: 0;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+   p {
+     color: $color-text;
+   }
+
+  &:hover,
+  &:hover:active,
+  &:focus {
+    background: rgb(245, 245, 245);
+  }
+
+  &:active,
+  &.active,
+  &.active:hover,
+  &:active:focus {
+    background: rgb(240, 240, 240);
+  }
+
+  &:focus {
+    background: rgb(245, 245, 245);
+  }
+}
+
+.sol-row-games {
+  padding: 0;
+  background: $color-accent;
+}
+
+$games-more-font-size: 18px;
+
+@mixin games-link {
+  color: white;
+
+  &:hover {
+    color: $color-accent-3;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $color-accent-3-active;
+    text-decoration: none;
+    &:focus {
+      color: $color-accent-3-active;
+      text-decoration: none;
+    }
+  }
+
+  &:focus {
+    color: $color-accent-3;
+    text-decoration: none;
+  }
+}
+
+.games-link {
+  @include games-link();
+  h1,h2,h3,h4 {
+    @include games-link();
+  }
+}
+
+// News
+
+.alternate-background {
+    background: #f7f7f7;
+}
+
+.news-title-box {
+  @extend .home-title-box;
+  background: #e9e9e9;
+  color: #676767;
+}
+
+@mixin news-link {
+  color: #676767;
+
+  &:hover {
+    color: #979797;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: #474747;
+    text-decoration: none;
+    &:focus {
+      color: #474747;
+      text-decoration: none;
+    }
+  }
+
+  &:focus {
+    color: #979797;
+    text-decoration: none;
+  }
+}
+
+.news-link {
+  @include news-link();
+  h1,h2,h3,h4 {
+    @include news-link();
+  }
+}
+
+.news-box {
+  h2 {
+    font-size: 1.6em;
+  }
+}
+
+// footer (provisoire)
+
+.footer-background {
+  display: block;
+  background: #393939;
+  color: white;
+//  position: absolute;
+//  right: 0;
+  //bottom: 0;
+  //left: 0;
+
+  h1,h2,h3,h4 {
+    color: #5e5e5e;
+  }
+}

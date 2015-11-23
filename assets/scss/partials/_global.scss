@@ -1,0 +1,66 @@
+@import "partials/variables";
+@import "helpers/helpers";
+
+body {
+  font-family: 'Ubuntu', Helvetica, sans-serif;
+  color: $color-text;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-weight: bold;
+  color: $color-text;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+h2 {
+  font-size: 2em;
+}
+h3 {
+  font-size: 1.5em;
+}
+
+a {
+  color: $color-accent-2;
+
+  &:hover {
+    color: $color-accent-3;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $color-accent-3-active;
+    text-decoration: none;
+    &:focus {
+      color: $color-accent-3-active;
+      text-decoration: none;
+    }
+  }
+
+  &:focus {
+    color: $color-accent-3;
+    text-decoration: none;
+  }
+}
+
+*::-moz-selection {
+  background: $color-accent-2;
+  color: white;
+}
+
+*::selection {
+  background: $color-accent;
+  color: white;
+}
+
+*::-webkit-selection {
+  background: $color-accent;
+  color: white;
+}
+
+.container {
+  width: 984px;
+}
